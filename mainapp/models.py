@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class ProducCategory(models.Model):
     name = models.CharField(max_length=64, unique=True, verbose_name='Название')
     description = models.TextField(verbose_name='Описание')

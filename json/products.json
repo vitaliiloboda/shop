@@ -1,0 +1,58 @@
+[
+  {
+    "category": "дом",
+    "name": "стол",
+    "image": "products/product-1.jpg",
+    "price": 10,
+    "quantity": 2
+  },
+  {
+    "category": "офис",
+    "name": "рабочий стол",
+    "image": "products/product-2.jpg",
+    "price": 27,
+    "quantity": 5
+  },
+  {
+    "category": "классика",
+    "name": "фортепиано",
+    "image": "products/product-3.jpg",
+    "price": 175,
+    "quantity": 1
+  },
+  {
+    "category": "модерн",
+    "name": "светильник",
+    "image": "products/product-4.jpg",
+    "price": 110,
+    "quantity": 8
+  },
+  {
+    "category": "дом",
+    "name": "стул",
+    "image": "products/product-11.jpg",
+    "price": 35,
+    "quantity": 5
+  },
+  {
+    "category": "офис",
+    "name": "стул",
+    "image": "products/product-21.jpg",
+    "price": 18,
+    "quantity": 17
+  },
+  {
+    "category": "классика",
+    "name": "антресоль",
+    "image": "products/product-31.jpg",
+    "price": 147,
+    "quantity": 3
+  },
+  {
+    "category": "модерн",
+    "name": "лавочка",
+    "image": "products/product-41.jpg",
+    "price": 255,
+    "quantity": 4
+  }
+]
