@@ -67,3 +67,9 @@ class ShopUserEditForm(UserChangeForm):
             raise forms.ValidationError('Добавьте аватар!')
         return data
 
+    # def clean_email(self):
+    #     data = self.cleaned_data['email']
+    #     is_exists = ShopUser.objects.exclude(pk=self.instance.pk).filter(email=data).exists()
+
+
+
