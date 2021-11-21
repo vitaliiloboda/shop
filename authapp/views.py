@@ -1,9 +1,13 @@
+from django.conf import settings
 from django.shortcuts import render
 from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.core.mail import send_mail
 
 from authapp.forms import ShopUserLoginForm, ShopUserRegisterForm, ShopUserEditForm
+from authapp.models import ShopUser
+from authapp.services import send_verity_email
 
 
 def login(request):
@@ -39,7 +43,8 @@ def register(request):
         register_form = ShopUserRegisterForm(request.POST, request.FILES)
 
         if register_form.is_valid():
-            register_form.save()
+            new_user = register_form.save()
+            send_verity_email(new_user)
             return HttpResponseRedirect(reverse('index'))
 
     else:
@@ -66,3 +71,16 @@ def edit(request):
     }
 
     return render(request, 'authapp/edit.html', context)
+
+
+def verify(request, email, key):
+    user = ShopUser.objects.filter(email=email).first()
+    # user = get_object_or_404(ShopUser, email=email)
+    if user:
+        if user.activate_key == key and not user.is_activate_key_expired():
+            user.activate_user()
+            auth.login(request, user)
+    return render(request, 'authapp/register_result.html')
+
+
+

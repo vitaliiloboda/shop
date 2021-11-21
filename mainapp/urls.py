@@ -10,3 +10,9 @@ urlpatterns = [
     path('product/<int:pk>/', mainapp.product, name='product'),
 ]
 
+# urlpatterns = [
+#     path('', mainapp.ProductsListView.as_view(), name='products'),
+#     path('category/<int:pk>/', mainapp.ProductsListView.as_view(), name='category'),
+#     path('product/<int:pk>/', mainapp.product, name='product'),
+# ]
+
