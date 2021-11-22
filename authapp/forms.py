@@ -4,7 +4,7 @@ import pytz
 from django.conf import settings
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django import forms
-from authapp.models import ShopUser
+from authapp.models import ShopUser, ShopUserProfile
 
 
 class ShopUserLoginForm(AuthenticationForm):
@@ -82,3 +82,16 @@ class ShopUserEditForm(UserChangeForm):
     # def clean_email(self):
     #     data = self.cleaned_data['email']
     #     is_exists = ShopUser.objects.exclude(pk=self.instance.pk).filter(email=data).exists()
+
+
+class ShopUserProfileEditForm(forms.ModelForm):
+
+    class Meta:
+        model = ShopUserProfile
+        exclude = ('user',)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+            field.help_text = ''
