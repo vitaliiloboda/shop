@@ -30,9 +30,19 @@
                     <a href="{% url 'mainapp:category_page' category.pk products.next_page_number %}">>></a>
                 {% endif %}
             </div>
+{#            <div class="pagination">#}
+{#                {% if page_obj.has_previous %}#}
+{#                    <a href="{% url 'mainapp:category' category.pk %}?page={{ page_obj.previous_page_number }}"><<</a>#}
+{#                {% endif %}#}
+{#                {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}#}
+{#                {% if page_obj.has_next %}#}
+{#                    <a href="{% url 'mainapp:category' category.pk %}?page={{ page_obj.next_page_number }}">>></a>#}
+{#                {% endif %}#}
+{#            </div>#}
             <div class="category-products clearfix">
 
                 {% for product in products %}
+{#                {% for product in object_list %}#}
                     <div class="block">
                         <a href="{% url 'mainapp:product' product.pk %}">
                             <img src="/media/{{ product.image }}" alt="product">
